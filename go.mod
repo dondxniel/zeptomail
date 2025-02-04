@@ -1,4 +1,4 @@
-module github.com/iqquee/zeptomail
+module github.com/jiyamathias/zeptomail
 
 go 1.20
 
