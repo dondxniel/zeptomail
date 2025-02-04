@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/iqquee/zeptomail"
+	"github.com/jiyamathias/zeptomail"
 )
 
 func main() {

@@ -9,7 +9,7 @@ See the [ZeptoMail API Docs](https://www.zoho.com/zeptomail/help/introduction.ht
 # Installation
 This package can in installed using the go command below.
 ```sh
-go get github.com/iqquee/zeptomail@latest
+go get github.com/jiyamathias/zeptomail@latest
 ```
 # Quick start
 ```sh
@@ -54,7 +54,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/iqquee/zeptomail"
+	"github.com/jiyamathias/zeptomail"
 )
 
 func main() {
@@ -233,7 +233,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/iqquee/zeptomail"
+	"github.com/jiyamathias/zeptomail"
 )
 
 func main() {
