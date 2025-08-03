@@ -22,9 +22,12 @@ type Client struct {
 }
 
 // New is the zeptomail config initializer
-func New(h http.Client, token string) *Client {
+func New(h http.Client, token, baseUrl string) *Client {
+	if baseUrl == "" {
+		baseUrl = "https://api.zeptomail.com/v1.1/"
+	}
 	return &Client{
-		BaseUrl: "https://api.zeptomail.com/v1.1/",
+		BaseUrl: baseUrl,
 		Http:    &h,
 		Token:   token,
 	}

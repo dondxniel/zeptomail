@@ -59,7 +59,7 @@ import (
 
 func main() {
 	zeptomailToken := "your zeptomail authorization token"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken)
+	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
 
 	data := "<div><b> Kindly click on Verify Account to confirm your account </b></div>"
 	req := zeptomail.SendHTMLEmailReq{
@@ -239,7 +239,7 @@ import (
 func main() {
 	zeptomailToken := "your zeptomail authorization token"
 	tempKey := "your zeptomail template key"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken)
+	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
 
 	req := zeptomail.SendTemplatedEmailReq{
 		To: []zeptomail.SendEmailTo{
