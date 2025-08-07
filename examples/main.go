@@ -46,7 +46,7 @@ func main() {
 // sendHTMLEmail sends a HTML Email
 func sendHTMLEmail() {
 	zeptomailToken := "your zeptomail authorization token"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 
 	data := "<div><b> Kindly click on Verify Account to confirm your account </b></div>"
 	req := zeptomail.SendHTMLEmailReq{
@@ -80,7 +80,7 @@ func sendTemplatedEmail() {
 	zeptomailToken := "your zeptomail authorization token"
 	tempKey := "your template key"
 
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 	req := zeptomail.SendTemplatedEmailReq{
 		To: []zeptomail.SendEmailTo{
 			{
@@ -116,7 +116,7 @@ func SendBatchTemplatedEmail() {
 	zeptomailToken := "your zeptomail authorization token"
 	tempKey := "your zeptomail template key"
 
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 	req := zeptomail.SendBatchTemplatedEmailReq{
 		To: []zeptomail.SendBatchTemplateEmailTo{
 			{
@@ -149,7 +149,7 @@ func SendBatchTemplatedEmail() {
 // AddEmailTemplate can be used to add an email template.
 func AddEmailTemplate() {
 	zeptomailToken := "your zeptomail authorization token"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 
 	req := zeptomail.AddEmailTemplateReq{
 		TemplateName:   "E-invite",
@@ -170,7 +170,7 @@ func AddEmailTemplate() {
 // UpdateEmailTemplate can be used to update an email template.
 func UpdateEmailTemplate() {
 	zeptomailToken := "your zeptomail authorization token"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 
 	req := zeptomail.UpdateEmailTemplateReq{
 		TemplateName:   "E-invite",
@@ -193,7 +193,7 @@ func GetEmailTemplate() {
 	zeptomailToken := "your zeptomail authorization token"
 	var TemplateKey, MailagentAlias string = "your template key", "mail agent alias"
 
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 	res, err := client.GetEmailTemplate(MailagentAlias, TemplateKey)
 	if err != nil {
 		fmt.Printf("This is the error: %v", err.Error())
@@ -206,7 +206,7 @@ func GetEmailTemplate() {
 func DeleteEmailTemplate() {
 	zeptomailToken := "your zeptomail authorization token"
 	var TemplateKey, MailagentAlias string = "your template key", "mail agent alias"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 
 	res, err := client.DeleteEmailTemplate(MailagentAlias, TemplateKey)
 	if err != nil {
@@ -218,7 +218,7 @@ func DeleteEmailTemplate() {
 
 func SendBatchHTMLEmail() {
 	zeptomailToken := "your zeptomail authorization token"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 
 	data := "<div><b>This is a sample email.{{contact}} {{company}}</b></div"
 	req := zeptomail.SendBatchHTMLEmailReq{
@@ -256,7 +256,7 @@ func SendBatchHTMLEmail() {
 // filecacheupload is used to upload file to file cache
 func FileCacheUploadAPI() {
 	zeptomailToken := "your zeptomail authorization token"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 
 	// Set the file path
 	filePath := "path_to_your_file.jpg"
@@ -294,7 +294,7 @@ func FileCacheUploadAPI() {
 
 func ListEmailTemplates() {
 	zeptomailToken := "your zeptomail authorization token"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken, "")
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 
 	var Offset, Limit int
 	var MailagentAlias string

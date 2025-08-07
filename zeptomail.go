@@ -21,14 +21,15 @@ type Client struct {
 	Token   string
 }
 
-// New is the zeptomail config initializer
-func New(h http.Client, token, baseUrl string) *Client {
-	if baseUrl == "" {
-		baseUrl = "https://api.zeptomail.com/v1.1/"
+// New initializes the ZeptoMail client configuration, with optional base URL support.
+func New(httpClient *http.Client, token string, baseURL ...string) *Client {
+	var url string
+	if len(baseURL) > 0 {
+		url = baseURL[0]
 	}
 	return &Client{
-		BaseUrl: baseUrl,
-		Http:    &h,
+		BaseUrl: url,
+		Http:    httpClient,
 		Token:   token,
 	}
 }
