@@ -64,7 +64,7 @@ func (c *Client) newRequest(method, reqURL string, reqBody, resp interface{}) er
 		return errors.Wrap(err, "http client ::: client failed to read file")
 	}
 
-	fmt.Println("Response body:", string(bb))
+	// fmt.Println("Response body:", string(bb))
 
 	if err := json.Unmarshal(bb, &resp); err != nil {
 		return errors.Errorf("Error ::: %v", err)
