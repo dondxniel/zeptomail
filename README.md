@@ -18,6 +18,33 @@ $ touch example.go
 # open the just created example.go file in the text editor of your choice
 ```
 
+# Client Initialization
+Initialize the ZeptoMail client by passing a custom `http.Client` and optionally overriding the `base URL`.
+
+`Example: Initializing without a custom base URL`
+```go
+client := zeptomail.New(http.DefaultClient, "your_token_here")
+```
+
+`Example: Initializing with a custom base URL`
+```go
+client := zeptomail.New(http.DefaultClient, "your_token_here", "https://api.zeptomail.in/v1.1/")
+```
+
+```go
+func New(httpClient *http.Client, token string, baseURL ...string) *Client {
+	var url string
+	if len(baseURL) > 0 {
+		url = baseURL[0]
+	}
+	return &Client{
+		BaseUrl: url,
+		Http:    httpClient,
+		Token:   token,
+	}
+}
+```
+
 # SendHTMLEmail
 `SendHTMLEmail()` sends a HTML template email.
 
@@ -59,7 +86,7 @@ import (
 
 func main() {
 	zeptomailToken := "your zeptomail authorization token"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken)
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 
 	data := "<div><b> Kindly click on Verify Account to confirm your account </b></div>"
 	req := zeptomail.SendHTMLEmailReq{
@@ -239,7 +266,7 @@ import (
 func main() {
 	zeptomailToken := "your zeptomail authorization token"
 	tempKey := "your zeptomail template key"
-	client := zeptomail.New(*http.DefaultClient, zeptomailToken)
+	client := zeptomail.New(http.DefaultClient, zeptomailToken)
 
 	req := zeptomail.SendTemplatedEmailReq{
 		To: []zeptomail.SendEmailTo{
